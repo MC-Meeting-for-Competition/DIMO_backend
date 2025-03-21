@@ -1,4 +1,4 @@
-package kr.hs.sdhs.dimo.domain
+package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 enum class RentStatus(val value: Int) {
     AVAILABLE(0),  // 대여 가능

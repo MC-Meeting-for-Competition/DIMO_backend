@@ -1,4 +1,4 @@
-package kr.hs.sdhs.dimo.domain
+package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 enum class Gender(val value: Int) {
     UNKNOWN(0), // 알 수 없음

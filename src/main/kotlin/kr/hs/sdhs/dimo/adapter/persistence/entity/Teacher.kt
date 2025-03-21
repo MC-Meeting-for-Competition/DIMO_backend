@@ -1,12 +1,12 @@
-package kr.hs.sdhs.dimo.domain
+package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "STUDENT")
-data class Student(
+@Table(name = "TEACHER")
+data class Teacher(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_no")
+    @Column(name = "teacher_no")
     val id: Long = 0,
 
     @Column(name = "student_name", nullable = false)
@@ -25,10 +25,6 @@ data class Student(
     @Column(name = "policy", nullable = false)
     val policy: Boolean,
 
-    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "gender", nullable = false)
-    val gender: Gender,
-
-    @OneToMany(mappedBy = "student", cascade = [CascadeType.ALL])
+    @OneToMany(mappedBy = "teacher", cascade = [CascadeType.ALL])
     val rents: List<Rent> = listOf()
 )

@@ -1,4 +1,4 @@
-package kr.hs.sdhs.dimo.domain
+package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 import jakarta.persistence.*
 
