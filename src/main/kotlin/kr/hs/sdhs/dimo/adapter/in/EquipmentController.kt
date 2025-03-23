@@ -47,14 +47,7 @@ class EquipmentController(
 
     @DeleteMapping("/{id}")
     fun deleteEquipment(@PathVariable id : Long):  ResponseEntity<String> {
-        val equipment =  getEquipmentInfoUseCase.getEquipmentById(id)
-
-        // 대여 중인 기자재라면 삭제할 수 없음
-        if(equipment.status == RentStatus.RENTED) {
-            throw CustomException(ErrorCode.EQUIPMENT_IS_RENTED)
-        }
-
-        deleteEquipmentUseCase.deleteById(equipment.id)
+        deleteEquipmentUseCase.deleteById(id)
         return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다")
     }
 
