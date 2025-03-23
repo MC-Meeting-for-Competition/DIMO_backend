@@ -16,4 +16,12 @@ class EquipmentRepositoryAdapter(
     override fun save(equipment: Equipment): Equipment {
         return jpaEquipmentRepository.save(equipment.toEntity()).toDomain()
     }
+
+    override fun findAll(equipmentTypeId: Long?): List<Equipment> {
+        return if(equipmentTypeId == null) {
+            jpaEquipmentRepository.findAll().map { it.toDomain() }
+        } else {
+            jpaEquipmentRepository.findAllByEquipmentTypeId(equipmentTypeId).map { it.toDomain() }
+        }
+    }
 }

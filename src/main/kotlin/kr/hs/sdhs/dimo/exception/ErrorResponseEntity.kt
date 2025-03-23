@@ -1,6 +1,5 @@
 package kr.hs.sdhs.dimo.exception
 
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
 data class ErrorResponseEntity(
@@ -13,7 +12,7 @@ data class ErrorResponseEntity(
                 code = errorCode.name,
                 message = errorCode.message
             )
-            return ResponseEntity(errorResponse, HttpStatus.valueOf(errorCode.httpStatus.value()))
+            return ResponseEntity.status(errorCode.httpStatus).body(ErrorResponseEntity(errorResponse.code, errorResponse.message))
         }
     }
 }

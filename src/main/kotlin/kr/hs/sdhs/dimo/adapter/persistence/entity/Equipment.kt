@@ -10,8 +10,9 @@ data class Equipment(
     @Column(name = "equip_no")
     val id: Long = 0,
 
-    @Column(name = "item_no", nullable = false, unique = true)
-    val itemNo: Int,
+    @ManyToOne
+    @JoinColumn(name = "item_no", nullable = false)
+    val type: EquipmentType,
 
     @Column(name = "serial_no", unique = true)
     val serialNo: String? = null,
@@ -28,11 +29,11 @@ data class Equipment(
     fun toDomain(): Equipment {
         return Equipment(
             id = this.id,
-            itemNo = this.itemNo,
+            type = type.toDomain(),
             serialNo = this.serialNo,
-            status = this.status,
+            status = RentStatus.fromValue(this.status),
             memo = this.memo,
-            rents = this.rents.map { it.toDomain() } // Rent도 도메인 모델로 변환
+            rents = this.rents.map { it.toDomain() } // Rent 도메인 모델로 변환
         )
     }
 }
