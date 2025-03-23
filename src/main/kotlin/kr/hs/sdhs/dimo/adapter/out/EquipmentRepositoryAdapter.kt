@@ -3,6 +3,7 @@ package kr.hs.sdhs.dimo.adapter.out
 import kr.hs.sdhs.dimo.adapter.persistence.repository.JpaEquipmentRepository
 import kr.hs.sdhs.dimo.application.port.output.EquipmentRepositoryPort
 import kr.hs.sdhs.dimo.domain.Equipment
+import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -17,11 +18,7 @@ class EquipmentRepositoryAdapter(
         return jpaEquipmentRepository.save(equipment.toEntity()).toDomain()
     }
 
-    override fun findAll(equipmentTypeId: Long?): List<Equipment> {
-        return if(equipmentTypeId == null) {
-            jpaEquipmentRepository.findAll().map { it.toDomain() }
-        } else {
-            jpaEquipmentRepository.findAllByEquipmentTypeId(equipmentTypeId).map { it.toDomain() }
-        }
+    override fun findAllByFilters(typeId: Long?, rentStatus: Int?, sort: Sort): List<Equipment> {
+        return jpaEquipmentRepository.findAllByFilters(typeId, rentStatus, sort).map { it.toDomain() }
     }
 }
