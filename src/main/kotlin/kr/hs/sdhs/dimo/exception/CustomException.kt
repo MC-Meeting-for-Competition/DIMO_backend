@@ -11,6 +11,8 @@ enum class ErrorCode(val message: String, val httpStatus: HttpStatus) {
     INTERNAL_SERVER_ERROR("서버 내부 오류", HttpStatus.INTERNAL_SERVER_ERROR),
     BAD_REQUEST("잘못된 요청입니다", HttpStatus.BAD_REQUEST),
     EQUIPMENT_TYPE_NOT_FOUND("등록되지 않은 기기 종류입니다", HttpStatus.NOT_FOUND),
+    EQUIPMENT_IS_RENTED("대여 중인 기자재입니다.", HttpStatus.BAD_REQUEST),
+    TYPE_HAS_EQUIPMENT("기자재 품목에 기자재가 등록되어있습니다", HttpStatus.BAD_REQUEST),
 }
 
 

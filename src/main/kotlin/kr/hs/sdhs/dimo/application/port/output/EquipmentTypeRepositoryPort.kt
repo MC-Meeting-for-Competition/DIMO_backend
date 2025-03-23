@@ -6,4 +6,5 @@ interface EquipmentTypeRepositoryPort {
     fun findById(id: Long): EquipmentType?
     fun findAll(name : String?): MutableList<EquipmentType>
     fun save(equipmentType: EquipmentType): EquipmentType
+    fun deleteById(id: Long) : Unit
 }

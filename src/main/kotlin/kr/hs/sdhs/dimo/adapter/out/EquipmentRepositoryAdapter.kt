@@ -21,4 +21,12 @@ class EquipmentRepositoryAdapter(
     override fun findAllByFilters(typeId: Long?, rentStatus: Int?, sort: Sort): List<Equipment> {
         return jpaEquipmentRepository.findAllByFilters(typeId, rentStatus, sort).map { it.toDomain() }
     }
+
+    override fun deleteById(id: Long): Unit {
+        jpaEquipmentRepository.deleteById(id)
+    }
+
+    override fun countByTypeId(typeId: Long): Long {
+        return jpaEquipmentRepository.countByTypeId(typeId)
+    }
 }

@@ -24,4 +24,8 @@ class EquipmentTypeRepositoryAdapter(private val jpaEquipmentTypeRepository : Jp
         return jpaEquipmentTypeRepository.save(equipmentType.toEntity()).toDomain()
     }
 
+    override fun deleteById(id: Long) : Unit {
+        jpaEquipmentTypeRepository.deleteById(id)
+    }
+
 }

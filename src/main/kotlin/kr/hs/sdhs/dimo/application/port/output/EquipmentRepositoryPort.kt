@@ -12,4 +12,6 @@ interface EquipmentRepositoryPort {
         @Param("rentStatus") rentStatus: Int?,
         sort: Sort
     ): List<Equipment>
+    fun deleteById(id: Long) : Unit
+    fun countByTypeId(@Param("typeId") typeId: Long): Long
 }

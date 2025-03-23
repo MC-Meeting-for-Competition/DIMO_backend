@@ -26,4 +26,8 @@ interface JpaEquipmentRepository : JpaRepository<Equipment, Long> {
         sort: Sort
     ): List<Equipment>
 
+    override fun deleteById(id: Long)
+
+    @Query("SELECT COUNT(e) FROM Equipment e WHERE e.type.id = :typeId")
+    fun countByTypeId(@Param("typeId") typeId: Long): Long
 }
