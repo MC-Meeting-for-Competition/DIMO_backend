@@ -30,4 +30,11 @@ interface JpaEquipmentRepository : JpaRepository<Equipment, Long> {
 
     @Query("SELECT COUNT(e) FROM Equipment e WHERE e.type.id = :typeId")
     fun countByTypeId(@Param("typeId") typeId: Long): Long
+
+    @Query("""
+        SELECT COUNT(e) 
+        FROM Equipment e 
+        WHERE e.serialNo = :serialNo AND e.type = :type
+    """)
+    fun countBySerialNoAndType(serialNo: String, type: EquipmentType): Long
 }

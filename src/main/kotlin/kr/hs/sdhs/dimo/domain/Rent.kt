@@ -1,17 +1,21 @@
 package kr.hs.sdhs.dimo.domain
 
 import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
+import kr.hs.sdhs.dimo.adapter.persistence.entity.Student
+import kr.hs.sdhs.dimo.adapter.persistence.entity.Teacher
+import kr.hs.sdhs.dimo.adapter.persistence.entity.Rent as RentEntity
+import kr.hs.sdhs.dimo.adapter.persistence.entity.Equipment
 import java.time.LocalDate
 
 data class Rent(
     val id: Long = 0,
-    val equipmentId: Long,
-    val studentId: Long? = null,
-    val teacherId: Long? = null,
+    val equipment: Equipment,
+    val student: Student? = null,
+    val teacher: Teacher? = null,
     val rentDate: LocalDate,
     val returnDate: LocalDate? = null,
     val rentStatus: RentStatus,
-    val isReturn: Boolean = false
+    val isReturn: Boolean = false,
 ) {
     // 연체 여부 확인
     fun isOverdue(currentDate: LocalDate): Boolean {
@@ -33,6 +37,20 @@ data class Rent(
 
     // 특정 사용자의 대여 기록인지 확인
     fun isRentedByUser(userId: Long): Boolean {
-        return (studentId == userId || teacherId == userId) && !isReturn
+        return (student?.id == userId || teacher?.id == userId) && !isReturn
+    }
+
+    // 엔티티 변환
+    fun toEntity(): RentEntity {
+        return RentEntity(
+            id = this.id,
+            equipment = this.equipment, // Equipment 엔티티 할당
+            student = this.student,     // Student 엔티티 할당
+            teacher = this.teacher,     // Teacher 엔티티 할당
+            rentDate = this.rentDate,
+            returnDate = this.returnDate,
+            rentStatus = this.rentStatus,
+            isReturn = this.isReturn
+        )
     }
 }

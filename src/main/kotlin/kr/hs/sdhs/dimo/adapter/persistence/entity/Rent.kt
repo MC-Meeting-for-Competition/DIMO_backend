@@ -1,7 +1,7 @@
 package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 import jakarta.persistence.*
-import kr.hs.sdhs.dimo.domain.Rent
+import kr.hs.sdhs.dimo.domain.Rent as RentDomain
 
 @Entity
 @Table(name = "RENT")
@@ -35,16 +35,16 @@ data class Rent(
     @Column(name = "is_return", nullable = false)
     val isReturn: Boolean = false
 ) {
-    fun toDomain(): Rent {
-        return Rent(
+    fun toDomain(): RentDomain {
+        return RentDomain(
             id = this.id,
-            equipmentId = this.equipment.id,  // 도메인에서는 ID만 사용
-            studentId = this.student?.id,
-            teacherId = this.teacher?.id,
+            equipment = this.equipment,  // 도메인에서는 ID만 사용
+            student = this.student,
+            teacher = this.teacher,
             rentDate = this.rentDate,
             returnDate = this.returnDate,
             rentStatus = this.rentStatus,
-            isReturn = this.isReturn
+            isReturn = this.isReturn,
         )
     }
 }

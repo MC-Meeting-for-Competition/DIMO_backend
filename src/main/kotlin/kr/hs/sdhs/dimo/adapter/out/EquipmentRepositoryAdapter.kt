@@ -3,6 +3,7 @@ package kr.hs.sdhs.dimo.adapter.out
 import kr.hs.sdhs.dimo.adapter.persistence.repository.JpaEquipmentRepository
 import kr.hs.sdhs.dimo.application.port.output.EquipmentRepositoryPort
 import kr.hs.sdhs.dimo.domain.Equipment
+import kr.hs.sdhs.dimo.domain.EquipmentType
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Repository
 
@@ -28,5 +29,9 @@ class EquipmentRepositoryAdapter(
 
     override fun countByTypeId(typeId: Long): Long {
         return jpaEquipmentRepository.countByTypeId(typeId)
+    }
+
+    override fun countBySerialNoAndType(serialNo: String, type: EquipmentType): Long {
+        return jpaEquipmentRepository.countBySerialNoAndType(serialNo, type.toEntity())
     }
 }

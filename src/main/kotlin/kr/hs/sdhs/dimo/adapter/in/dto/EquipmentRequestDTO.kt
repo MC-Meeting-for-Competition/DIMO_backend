@@ -12,7 +12,7 @@ data class EquipmentRequestDTO(
     @field:PositiveOrZero(message = "품목은 0부터 시작합니다.")
     val itemNo: Long,
 
-    val serialNo: String?,
+    val serialNo: String,
     val status : Int,
 
     @field:Size(max = 200, message = "memo는 최대 200자까지 가능합니다.")

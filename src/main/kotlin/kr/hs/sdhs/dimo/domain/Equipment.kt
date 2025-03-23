@@ -8,7 +8,7 @@ import kr.hs.sdhs.dimo.exception.ErrorCode
 data class Equipment(
     val id: Long = 0,
     val type: EquipmentType,
-    val serialNo: String? = null,
+    val serialNo: String,
     val status: RentStatus = RentStatus.AVAILABLE,
     val memo: String? = null,
     val rents: List<Rent> = mutableListOf()

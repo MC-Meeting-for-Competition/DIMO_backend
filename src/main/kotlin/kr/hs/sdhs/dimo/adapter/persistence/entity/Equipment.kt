@@ -14,8 +14,8 @@ data class Equipment(
     @JoinColumn(name = "item_no", nullable = false)
     val type: EquipmentType,
 
-    @Column(name = "serial_no", unique = true)
-    val serialNo: String? = null,
+    @Column(name = "serial_no")
+    val serialNo: String,
 
     @Column(name = "status", nullable = false)
     val status: Int,
