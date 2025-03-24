@@ -11,4 +11,13 @@ interface JpaRentRepository : JpaRepository<Rent, Long> {
     @Modifying
     @Query("UPDATE Rent r SET r.rentStatus = :status WHERE r.id = :rentId")
     fun updateStatus(@Param("status") status: RentStatus, @Param("rentId") rentId: Long): Int
+
+    @Query("SELECT r FROM Rent r WHERE r.student.id = :rentId")
+    fun findByStudentId(@Param("rentId") rentId: Long): List<Rent>
+
+    @Query("SELECT r FROM Rent r WHERE r.teacher.id = :teacherId")
+    fun findByTeacherId(@Param("teacherId") teacherId: Long): List<Rent>
+
+    @Query("SELECT r FROM Rent r WHERE r.equipment.id = :equipmentId")
+    fun findByEquipmentId(equipmentId: Long): List<Rent>
 }

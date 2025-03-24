@@ -18,4 +18,8 @@ class RentRepositoryAdapter(private val jpaRentRepository : JpaRentRepository) :
     override fun save(rent: Rent): Rent {
         return jpaRentRepository.save(rent.toEntity()).toDomain()
     }
+
+    override fun findAllByEquipmentId(equipmentId: Long): MutableList<Rent> {
+        return jpaRentRepository.findByEquipmentId(equipmentId).map { it.toDomain() }.toMutableList()
+    }
 }
