@@ -14,8 +14,8 @@ data class Rent(
     val teacher: Teacher? = null,
     val rentDate: LocalDate,
     val returnDate: LocalDate? = null,
-    val rentStatus: RentStatus,
-    val isReturn: Boolean = false,
+    var rentStatus: RentStatus,
+    var isReturn: Boolean = false,
 ) {
     // 연체 여부 확인
     fun isOverdue(currentDate: LocalDate): Boolean {
@@ -38,6 +38,16 @@ data class Rent(
     // 특정 사용자의 대여 기록인지 확인
     fun isRentedByUser(userId: Long): Boolean {
         return (student?.id == userId || teacher?.id == userId) && !isReturn
+    }
+
+
+    fun isAlreadyProcessed(status : RentStatus): Boolean {
+        return this.rentStatus == status
+    }
+
+    fun updateStatus(newStatus: RentStatus): RentStatus {
+        this.rentStatus = newStatus
+        return newStatus
     }
 
     // 엔티티 변환

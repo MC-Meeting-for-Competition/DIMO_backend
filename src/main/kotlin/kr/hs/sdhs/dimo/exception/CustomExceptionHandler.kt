@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.bind.support.WebExchangeBindException
+import org.springframework.web.reactive.resource.NoResourceFoundException
 import org.springframework.web.server.ServerWebInputException
 
 @RestControllerAdvice
@@ -26,6 +27,12 @@ class CustomExceptionHandler {
         e.printStackTrace()
         val message = e.bindingResult.allErrors[0].defaultMessage
         return ResponseEntity.badRequest().body(message?.let { ErrorResponseEntity(HttpStatus.BAD_REQUEST.name, it) })
+    }
+
+    @ExceptionHandler(NoResourceFoundException::class)
+    fun handleNoResourceFoundException(e: NoResourceFoundException): ResponseEntity<ErrorResponseEntity> {
+        val message = e.body.title
+        return ResponseEntity.badRequest().body(message?.let { ErrorResponseEntity(HttpStatus.BAD_REQUEST.name, message) })
     }
 
     @ExceptionHandler(Exception::class)

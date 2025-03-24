@@ -30,7 +30,7 @@ data class Rent(
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "rent_status", nullable = false)
-    val rentStatus: RentStatus,
+    var rentStatus: RentStatus,
 
     @Column(name = "is_return", nullable = false)
     val isReturn: Boolean = false

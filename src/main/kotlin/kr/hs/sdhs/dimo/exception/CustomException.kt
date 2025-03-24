@@ -21,6 +21,12 @@ enum class ErrorCode(val message: String, val httpStatus: HttpStatus) {
     INVALID_USER_TYPE("학생/교사 중 선택해주세요", HttpStatus.BAD_REQUEST),
     TEACHER_ALREADY_EXIST("이미 등록된 교사입니다", HttpStatus.CONFLICT),
     DUPLICATE_EQUIPMENT("중복된 기자재입니다", HttpStatus.CONFLICT),
+    RENT_NOT_FOUND("대여 정보를 찾을 수 없습니다", HttpStatus.NOT_FOUND),
+    ALREADY_PROCESSED("이미 처리된 요청입니다", HttpStatus.CONFLICT),
+    RETURN_NOT_ACCEPT("반납할 수 없는 기자재입니다", HttpStatus.FORBIDDEN),
+    EQUIPMENT_NOT_AVAILABLE("기자재를 대여할 수 없습니다", HttpStatus.BAD_REQUEST),
+    NOT_ACCEPT_LONG_RENT("장기 대여는 교사만 가능합니다", HttpStatus.FORBIDDEN),
+    RETURN_DATE_TOO_LONG("6개월 이상 대여는 불가능합니다", HttpStatus.BAD_REQUEST),
 }
 
 

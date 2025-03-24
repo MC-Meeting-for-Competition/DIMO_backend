@@ -5,11 +5,13 @@ import kr.hs.sdhs.dimo.adapter.persistence.entity.Equipment as EquipmentEntity
 import kr.hs.sdhs.dimo.exception.CustomException
 import kr.hs.sdhs.dimo.exception.ErrorCode
 
+
+
 data class Equipment(
     val id: Long = 0,
     val type: EquipmentType,
     val serialNo: String,
-    val status: RentStatus = RentStatus.AVAILABLE,
+    var status: RentStatus = RentStatus.AVAILABLE,
     val memo: String? = null,
     val rents: List<Rent> = mutableListOf()
 ) {
@@ -25,15 +27,9 @@ data class Equipment(
     // 장비가 파손된 상태인지 확인
     fun isBroken() = status == RentStatus.DAMAGED
 
-    // 메모가 있는지 확인
-    fun hasMemo() = !memo.isNullOrEmpty()
-
     // 장비 대여 처리
     fun rentEquipment(): Equipment {
-        if (isRented()) throw CustomException(ErrorCode.RENTAL_ALREADY_IN_PROGRESS)
-        if (isChecking()) throw CustomException(ErrorCode.EQUIPMENT_CHECKING_PROGRESS)
-        if (isBroken()) throw CustomException(ErrorCode.EQUIPMENT_IS_BROKEN)
-
+        if (!isAvailable()) throw CustomException(ErrorCode.EQUIPMENT_NOT_AVAILABLE)
         return copy(status = RentStatus.RENTED)
     }
 
@@ -45,10 +41,7 @@ data class Equipment(
 
     // 장기 대여 처리
     fun rentLongEquipment(): Equipment {
-        if (isRented()) throw CustomException(ErrorCode.RENTAL_ALREADY_IN_PROGRESS)
-        if (isChecking()) throw CustomException(ErrorCode.EQUIPMENT_CHECKING_PROGRESS)
-        if (isBroken()) throw CustomException(ErrorCode.EQUIPMENT_IS_BROKEN)
-
+        if (!isAvailable()) throw CustomException(ErrorCode.EQUIPMENT_NOT_AVAILABLE)
         return copy(status = RentStatus.LONG_RENTED)
     }
 
@@ -64,6 +57,11 @@ data class Equipment(
         return copy(status = RentStatus.DAMAGED)
     }
 
+    fun updateStatus(newStatus: RentStatus): RentStatus {
+        this.status = newStatus
+        return newStatus
+    }
+
     // 엔티티 변환
     fun toEntity(): EquipmentEntity {
         return EquipmentEntity(
@@ -71,7 +69,7 @@ data class Equipment(
             type = type.toEntity(),
             serialNo = serialNo,
             memo = memo,
-            status = status.ordinal // Enum을 Int로 변환
+            status = status // `ordinal`을 사용하지 않고, Enum을 그대로 저장 가능하면 유지.
         )
     }
 }

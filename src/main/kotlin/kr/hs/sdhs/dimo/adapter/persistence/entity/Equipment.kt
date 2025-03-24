@@ -18,7 +18,7 @@ data class Equipment(
     val serialNo: String,
 
     @Column(name = "status", nullable = false)
-    val status: Int,
+    var status: RentStatus,
 
     @Column(name = "memo", length = 200)
     val memo: String? = null,
@@ -31,7 +31,7 @@ data class Equipment(
             id = this.id,
             type = type.toDomain(),
             serialNo = this.serialNo,
-            status = RentStatus.fromValue(this.status),
+            status = this.status,
             memo = this.memo,
             rents = this.rents.map { it.toDomain() } // Rent 도메인 모델로 변환
         )

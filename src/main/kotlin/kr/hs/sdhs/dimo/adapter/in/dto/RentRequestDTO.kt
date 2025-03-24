@@ -41,8 +41,8 @@ data class RentRequestDTO(
     @field:NotNull(message = "반납 예정일을 입력해주세요.")
     val returnDate: LocalDate,
 
-    @field:NotNull(message = "대여할 기자재 품번을 입력해주세요.")
-    var equipmentId : Long
+    @field:NotNull(message = "장기 대여 여부를 선택해주세요.")
+    val isLongRent : Boolean,
 ) {
     fun toDomain(
         equipment: Equipment, // Equipment 엔티티 객체

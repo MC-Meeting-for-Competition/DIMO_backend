@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 @Repository
 class RentRepositoryAdapter(private val jpaRentRepository : JpaRentRepository) :RentRepositoryPort {
     override fun findById(id: Long): Rent? {
-        TODO("Not yet implemented")
+        return jpaRentRepository.findById(id).map { it.toDomain() }.orElse(null)
     }
 
     override fun findAll(): MutableList<Rent> {

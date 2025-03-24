@@ -1,5 +1,6 @@
 package kr.hs.sdhs.dimo.application.port.output
 
+import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
 import kr.hs.sdhs.dimo.domain.Equipment
 import kr.hs.sdhs.dimo.domain.EquipmentType
 import org.springframework.data.domain.Sort
@@ -10,7 +11,7 @@ interface EquipmentRepositoryPort {
     fun save(equipment: Equipment): Equipment
     fun findAllByFilters(
         @Param("typeId") typeId: Long?,
-        @Param("rentStatus") rentStatus: Int?,
+        @Param("rentStatus") rentStatus: RentStatus?,
         sort: Sort
     ): List<Equipment>
     fun deleteById(id: Long) : Unit

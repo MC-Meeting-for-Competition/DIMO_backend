@@ -1,5 +1,6 @@
 package kr.hs.sdhs.dimo.adapter.out
 
+import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
 import kr.hs.sdhs.dimo.adapter.persistence.repository.JpaEquipmentRepository
 import kr.hs.sdhs.dimo.application.port.output.EquipmentRepositoryPort
 import kr.hs.sdhs.dimo.domain.Equipment
@@ -19,7 +20,7 @@ class EquipmentRepositoryAdapter(
         return jpaEquipmentRepository.save(equipment.toEntity()).toDomain()
     }
 
-    override fun findAllByFilters(typeId: Long?, rentStatus: Int?, sort: Sort): List<Equipment> {
+    override fun findAllByFilters(typeId: Long?, rentStatus: RentStatus?, sort: Sort): List<Equipment> {
         return jpaEquipmentRepository.findAllByFilters(typeId, rentStatus, sort).map { it.toDomain() }
     }
 

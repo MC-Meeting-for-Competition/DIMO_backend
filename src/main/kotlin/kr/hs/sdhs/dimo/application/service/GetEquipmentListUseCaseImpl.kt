@@ -15,7 +15,7 @@ class GetEquipmentListUseCaseImpl(
         val sortDirection = if (direction.lowercase() == "desc") Sort.Direction.DESC else Sort.Direction.ASC
         val sortBy = Sort.by(sortDirection, sort)
 
-        return equipmentRepository.findAllByFilters(equipmentTypeId, rentStatus?.value, sortBy)
+        return equipmentRepository.findAllByFilters(equipmentTypeId, rentStatus, sortBy)
     }
 
 }
