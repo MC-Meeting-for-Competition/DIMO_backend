@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/equipments")
+@RequestMapping("/v1/equipments")
 class EquipmentController(
     private val getEquipmentInfoUseCase: GetEquipmentInfoUseCase,
     private val registerEquipmentUseCase: RegisterEquipmentUseCase,

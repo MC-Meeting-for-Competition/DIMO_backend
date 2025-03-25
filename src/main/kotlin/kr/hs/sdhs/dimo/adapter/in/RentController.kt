@@ -10,7 +10,7 @@ import kr.hs.sdhs.dimo.application.port.input.UpdateRentStatusUseCase
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/rent")
+@RequestMapping("/v1/rent")
 class RentController(
     private val rentEquipmentUseCase: RentEquipmentUseCase,
     private val updateRentStatusUseCase: UpdateRentStatusUseCase,

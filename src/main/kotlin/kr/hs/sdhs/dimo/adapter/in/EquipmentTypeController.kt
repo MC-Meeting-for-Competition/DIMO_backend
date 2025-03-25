@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("equipment-types")
+@RequestMapping("/v1/equipment-types")
 class EquipmentTypeController(
     private val getEquipmentTypeListUseCase: GetEquipmentTypeListUseCase,
     private val registerEquipmentTypeUseCase: RegisterEquipmentTypeUseCase,
