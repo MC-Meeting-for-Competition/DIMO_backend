@@ -36,8 +36,8 @@ data class Rent(
     }
 
     // 특정 사용자의 대여 기록인지 확인
-    fun isRentedByUser(userId: Long): Boolean {
-        return (student?.id == userId || teacher?.id == userId) && !isReturn
+    fun isRentedByUser(userId: String): Boolean {
+        return (student?.id.equals(userId) || teacher?.id == userId) && !isReturn
     }
 
 

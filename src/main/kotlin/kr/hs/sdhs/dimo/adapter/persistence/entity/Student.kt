@@ -7,8 +7,8 @@ import kr.hs.sdhs.dimo.domain.Student as StudentDomain
 @Table(name = "STUDENT")
 data class Student(
     @Id
-    @Column(name = "student_no", unique = true)
-    val id: Long = 0,
+    @Column(name = "student_no", unique = true, length = 5)
+    val id: String,
 
     @Column(name = "student_name", nullable = false)
     val name: String,

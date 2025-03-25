@@ -4,7 +4,7 @@ import kr.hs.sdhs.dimo.adapter.persistence.entity.Gender
 import kr.hs.sdhs.dimo.domain.Student
 
 data class StudentResponseDTO(
-    val id: Long,
+    val id: String,
 
     val name: String,
 

@@ -2,14 +2,13 @@ package kr.hs.sdhs.dimo.adapter.persistence.entity
 
 import kr.hs.sdhs.dimo.domain.Teacher as TeacherDomain
 import jakarta.persistence.*
-import org.springframework.data.jpa.domain.AbstractPersistable_.id
 
 @Entity
 @Table(name = "TEACHER")
 data class Teacher(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(name = "teacher_no")
-    val id: Long = 0,
+    val id: String,
 
     @Column(name = "teacher_name", nullable = false)
     val name: String,

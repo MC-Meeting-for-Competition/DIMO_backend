@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import java.util.Optional
 
-interface JpaStudentRepository : JpaRepository<Student, Long> {
+interface JpaStudentRepository : JpaRepository<Student, String> {
     @Query("SELECT s FROM Student s LEFT JOIN FETCH s.rents WHERE s.email = :email")
     fun findByEmail(@Param("email") email: String): Optional<Student>
 }

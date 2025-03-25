@@ -4,7 +4,7 @@ import kr.hs.sdhs.dimo.adapter.persistence.entity.Gender
 import kr.hs.sdhs.dimo.adapter.persistence.entity.Student as StudentEntity
 
 data class Student(
-    val id: Long = 0,
+    val id: String,
     val name: String,
     val phone: String,
     val email: String,
