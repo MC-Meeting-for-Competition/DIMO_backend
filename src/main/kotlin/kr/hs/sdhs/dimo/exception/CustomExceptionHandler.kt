@@ -2,11 +2,12 @@ package kr.hs.sdhs.dimo.exception
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.bind.support.WebExchangeBindException
-import org.springframework.web.reactive.resource.NoResourceFoundException
 import org.springframework.web.server.ServerWebInputException
+import org.springframework.web.servlet.resource.NoResourceFoundException
 
 @RestControllerAdvice
 class CustomExceptionHandler {
@@ -30,9 +31,13 @@ class CustomExceptionHandler {
     }
 
     @ExceptionHandler(NoResourceFoundException::class)
-    fun handleNoResourceFoundException(e: NoResourceFoundException): ResponseEntity<ErrorResponseEntity> {
-        val message = e.body.title
-        return ResponseEntity.badRequest().body(message?.let { ErrorResponseEntity(HttpStatus.BAD_REQUEST.name, message) })
+    fun handleNoResourceFoundException(e : NoResourceFoundException): ResponseEntity<ErrorResponseEntity> {
+        return ResponseEntity.notFound().build()
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException::class)
+    fun handleHttpMessageNotReadableException(e: HttpMessageNotReadableException): ResponseEntity<ErrorResponseEntity> {
+        return ResponseEntity.badRequest().body(ErrorResponseEntity(HttpStatus.BAD_REQUEST.name, "잘못된 요청입니다"))
     }
 
     @ExceptionHandler(Exception::class)

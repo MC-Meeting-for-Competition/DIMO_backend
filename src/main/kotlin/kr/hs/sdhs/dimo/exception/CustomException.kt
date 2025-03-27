@@ -27,6 +27,10 @@ enum class ErrorCode(val message: String, val httpStatus: HttpStatus) {
     EQUIPMENT_NOT_AVAILABLE("기자재를 대여할 수 없습니다", HttpStatus.BAD_REQUEST),
     NOT_ACCEPT_LONG_RENT("장기 대여는 교사만 가능합니다", HttpStatus.FORBIDDEN),
     RETURN_DATE_TOO_LONG("6개월 이상 대여는 불가능합니다", HttpStatus.BAD_REQUEST),
+    ADMIN_NOT_FOUND("관리자를 찾을 수 없습니다", HttpStatus.NOT_FOUND),
+    WRONG_USERNAME_OR_PASSWORD("올바르지 않은 아이디 또는 비밀번호입니다", HttpStatus.BAD_REQUEST),
+    NOT_ACCEPTED_ADMIN_ACCOUNT("허용되지 않은 관리자 계정입니다", HttpStatus.FORBIDDEN),
+    EXIST_ADMIN("이미 존재하는 관리자 계정입니다", HttpStatus.FORBIDDEN),
 }
 
 

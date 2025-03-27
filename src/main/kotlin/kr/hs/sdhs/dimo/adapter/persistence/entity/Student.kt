@@ -30,7 +30,11 @@ data class Student(
     val gender: Gender,
 
     @OneToMany(mappedBy = "student", cascade = [CascadeType.ALL])
-    val rents: List<Rent> = listOf()
+    val rents: List<Rent> = listOf(),
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    val role: Role = Role.USER
 ) {
     fun toDomain(): StudentDomain {
         return StudentDomain(

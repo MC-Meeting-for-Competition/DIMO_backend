@@ -7,7 +7,7 @@ import jakarta.persistence.*
 @Table(name = "TEACHER")
 data class Teacher(
     @Id
-    @Column(name = "teacher_no")
+    @Column(name = "teacher_no", unique = true, nullable = false)
     val id: String,
 
     @Column(name = "teacher_name", nullable = false)
@@ -26,7 +26,11 @@ data class Teacher(
     val policy: Boolean,
 
     @OneToMany(mappedBy = "teacher", cascade = [CascadeType.ALL])
-    val rents: List<Rent> = listOf()
+    val rents: List<Rent> = listOf(),
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    val role: Role = Role.USER
 ) {
     fun toDomain() : TeacherDomain {
         return TeacherDomain(

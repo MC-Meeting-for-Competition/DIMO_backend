@@ -1,24 +1,15 @@
 package kr.hs.sdhs.dimo.adapter.`in`
 
-import jakarta.validation.Valid
-import kr.hs.sdhs.dimo.adapter.`in`.dto.EquipmentRequestDTO
 import kr.hs.sdhs.dimo.adapter.`in`.dto.EquipmentResponseDTO
 import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
 import kr.hs.sdhs.dimo.application.port.input.*
-import kr.hs.sdhs.dimo.exception.CustomException
-import kr.hs.sdhs.dimo.exception.ErrorCode
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/v1/equipments")
 class EquipmentController(
     private val getEquipmentInfoUseCase: GetEquipmentInfoUseCase,
-    private val registerEquipmentUseCase: RegisterEquipmentUseCase,
-    private val getEquipmentTypeUseCase: GetEquipmentTypeUseCase,
     private val getEquipmentListUseCase: GetEquipmentListUseCase,
-    private val deleteEquipmentUseCase: DeleteEquipmentUseCase
 ) {
     @GetMapping("/{id}")
     fun getEquipment(@PathVariable id : Long) : EquipmentResponseDTO {
@@ -43,18 +34,5 @@ class EquipmentController(
 
         val equipmentList = getEquipmentListUseCase.findAll(typeId, statusEnum, sort, direction)
         return equipmentList.map { equipment -> EquipmentResponseDTO.fromDomain(equipment) }
-    }
-
-    @DeleteMapping("/{id}")
-    fun deleteEquipment(@PathVariable id : Long):  ResponseEntity<String> {
-        deleteEquipmentUseCase.deleteById(id)
-        return ResponseEntity.status(HttpStatus.OK).body("정상적으로 삭제되었습니다")
-    }
-
-    @PostMapping("/register")
-    fun registerEquipment(@RequestBody @Valid request : EquipmentRequestDTO) : EquipmentResponseDTO {
-        val equipmentType = getEquipmentTypeUseCase.findById(request.itemNo)
-        val equipment = registerEquipmentUseCase.registerEquipment(request.toDomain(equipmentType))
-        return EquipmentResponseDTO.fromDomain(equipment)
     }
 }
