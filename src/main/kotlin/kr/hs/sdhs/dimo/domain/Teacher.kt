@@ -3,11 +3,11 @@ package kr.hs.sdhs.dimo.domain
 import kr.hs.sdhs.dimo.adapter.persistence.entity.Teacher as TeacherEntity
 
 data class Teacher(
-    val id: String,
+    var id : Long? = null,
     val name: String,
     val phone: String,
     val email : String,
-    val rentMemo: String? = null,
+    var rentMemo: String? = null,
     val policy: Boolean,
     val rents: List<Rent> = listOf()
 ) {
@@ -20,12 +20,12 @@ data class Teacher(
     // 엔티티 변환
     fun toEntity(): TeacherEntity {
         return TeacherEntity(
-            id = this.id,
             name = this.name,
             phone = this.phone,
             email = this.email,
             rentMemo = this.rentMemo,
-            policy = this.policy
+            policy = this.policy,
+            id = this.id
         )
     }
 }

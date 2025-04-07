@@ -14,9 +14,6 @@ data class TeacherRequestDTO(
     @field:Size(min = 10, max = 13, message = "전화번호는 10자 이상, 13자 이하로 입력해야 합니다.")
     val phone: String,
 
-    @field:NotNull(message = "교사 아이디를 입력해주세요.")
-    val id : String,
-
     @field:NotBlank(message = "이메일은 필수 항목입니다.")
     @field:Email(message = "유효한 이메일 형식이 아닙니다.")
     val email: String,
@@ -33,8 +30,7 @@ data class TeacherRequestDTO(
             phone = phone,
             email = email,
             rentMemo = rentMemo,
-            policy = policy,
-            id = id
+            policy = policy
         )
     }
 }

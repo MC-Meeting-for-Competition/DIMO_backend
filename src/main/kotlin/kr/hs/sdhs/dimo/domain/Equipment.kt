@@ -5,14 +5,12 @@ import kr.hs.sdhs.dimo.adapter.persistence.entity.Equipment as EquipmentEntity
 import kr.hs.sdhs.dimo.exception.CustomException
 import kr.hs.sdhs.dimo.exception.ErrorCode
 
-
-
 data class Equipment(
     val id: Long = 0,
     val type: EquipmentType,
     val serialNo: String,
     var status: RentStatus = RentStatus.AVAILABLE,
-    val memo: String? = null,
+    var memo: String? = null,
     val rents: List<Rent> = mutableListOf()
 ) {
     // 장비가 사용 가능한지 확인

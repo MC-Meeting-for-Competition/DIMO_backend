@@ -6,7 +6,7 @@ import java.util.Optional
 
 interface StudentRepositoryPort {
     fun save(student: Student) : Student
-    fun findById(id: Long): Student?
+    fun findById(id: String): Student?
     fun findAll() : MutableList<Student>
     fun findByEmail(@Param("email") email : String) : Student?
 }

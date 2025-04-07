@@ -8,7 +8,8 @@ import jakarta.persistence.*
 data class Teacher(
     @Id
     @Column(name = "teacher_no", unique = true, nullable = false)
-    val id: String,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long?,
 
     @Column(name = "teacher_name", nullable = false)
     val name: String,
@@ -34,7 +35,6 @@ data class Teacher(
 ) {
     fun toDomain() : TeacherDomain {
         return TeacherDomain(
-            id = this.id,
             name = this.name,
             phone = this.phone,
             email = this.email,

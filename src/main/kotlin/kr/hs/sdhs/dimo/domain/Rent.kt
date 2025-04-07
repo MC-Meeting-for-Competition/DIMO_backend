@@ -35,11 +35,6 @@ data class Rent(
         return this.copy(isReturn = true, rentStatus = RentStatus.AVAILABLE)
     }
 
-    // 특정 사용자의 대여 기록인지 확인
-    fun isRentedByUser(userId: String): Boolean {
-        return (student?.id.equals(userId) || teacher?.id == userId) && !isReturn
-    }
-
 
     fun isAlreadyProcessed(status : RentStatus): Boolean {
         return this.rentStatus == status

@@ -19,7 +19,10 @@ class AdminController(
     private val updateRentStatusUseCase: UpdateRentStatusUseCase,
     private val registerAdminUseCase: RegisterAdminUseCase,
     private val loginAdminUseCase: LoginAdminUseCase,
-    private val grantAdminUseCase: GrantAdminUseCase
+    private val grantAdminUseCase: GrantAdminUseCase,
+    private val addEquipmentMemoUseCase: AddEquipmentMemoUseCase,
+    private val addStudentMemoUseCase: AddStudentMemoUseCase,
+    private val addTeacherMemoUseCase: AddTeacherMemoUseCase
 ) {
 
     @DeleteMapping("/equipment/{id}")
@@ -74,7 +77,25 @@ class AdminController(
 
     @PatchMapping("/grant/{adminId}")
     fun grant(@PathVariable adminId: Long) : AdminResponseDTO {
-        val grantedAdmin = grantAdminUseCase.grantAdmin(adminId);
+        val grantedAdmin = grantAdminUseCase.grantAdmin(adminId)
         return AdminResponseDTO.fromDomain(grantedAdmin)
+    }
+
+    @PostMapping("/equipment/{id}/memo")
+    fun addMemoToEquipment(@PathVariable id: Long, @RequestBody memo: String) : EquipmentResponseDTO {
+        val equipment = addEquipmentMemoUseCase.addEquipmentMemo(id, memo)
+        return EquipmentResponseDTO.fromDomain(equipment)
+    }
+
+    @PostMapping("/student/{id}/memo")
+    fun addMemoToStudent(@PathVariable id: String, @RequestBody memo: String) : StudentResponseDTO {
+        val student = addStudentMemoUseCase.addStudentMemo(id, memo)
+        return StudentResponseDTO.fromDomain(student)
+    }
+
+    @PostMapping("/teacher/{id}/memo")
+    fun addMemoToTeacher(@PathVariable id: Long, @RequestBody memo: String) : TeacherResponseDTO {
+        val teacher = addTeacherMemoUseCase.addTeacherMemo(id, memo)
+        return TeacherResponseDTO.fromDomain(teacher)
     }
 }

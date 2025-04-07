@@ -4,6 +4,7 @@ import kr.hs.sdhs.dimo.domain.Teacher
 import org.springframework.data.repository.query.Param
 
 interface TeacherRepositoryPort {
+    fun findById(id: Long): Teacher?
     fun save(teacher: Teacher): Teacher
     fun findByEmail(@Param("email") email : String) : Teacher?
 }

@@ -8,7 +8,7 @@ data class Student(
     val name: String,
     val phone: String,
     val email: String,
-    val rentMemo: String?,
+    var rentMemo: String?,
     val policy: Boolean,
     val gender: Gender,
     val rents: List<Rent> = listOf()

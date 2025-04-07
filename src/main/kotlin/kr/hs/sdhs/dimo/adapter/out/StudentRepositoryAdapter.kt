@@ -13,8 +13,8 @@ class StudentRepositoryAdapter(
         return jpaStudentRepository.save(student.toEntity()).toDomain()
     }
 
-    override fun findById(id: Long): Student? {
-        TODO("Not yet implemented")
+    override fun findById(id: String): Student? {
+        return jpaStudentRepository.findById(id).map { it.toDomain() }.orElse(null)
     }
 
     override fun findAll(): MutableList<Student> {

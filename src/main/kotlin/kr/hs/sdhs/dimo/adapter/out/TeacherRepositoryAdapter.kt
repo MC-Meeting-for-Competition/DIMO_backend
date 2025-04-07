@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository
 class TeacherRepositoryAdapter(
     private val jpaTeacherRepository : JpaTeacherRepository
 ) : TeacherRepositoryPort {
+    override fun findById(id: Long): Teacher? {
+        return jpaTeacherRepository.findById(id).map { it.toDomain() }.orElse(null)
+    }
+
     override fun save(teacher: Teacher): Teacher {
         return jpaTeacherRepository.save(teacher.toEntity()).toDomain()
     }
