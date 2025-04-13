@@ -23,7 +23,7 @@ interface JpaRentRepository : JpaRepository<Rent, Long> {
     )
     fun findAllFiltered(
         @Param("studentId") studentId: String?,
-        @Param("teacherId") teacherId: String?,
+        @Param("teacherId") teacherId: Long?,
         @Param("equipmentId") equipmentId: Long?,
         @Param("rentStatus") rentStatus: RentStatus?,
         pageable: Pageable

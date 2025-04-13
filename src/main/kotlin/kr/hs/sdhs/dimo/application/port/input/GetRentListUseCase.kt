@@ -5,7 +5,7 @@ import kr.hs.sdhs.dimo.adapter.`in`.dto.RentResponseDTO
 interface GetRentListUseCase {
     fun getRentList(
         studentId: String?,
-        teacherId: String?,
+        teacherId: Long?,
         equipmentId: Long?,
         rentStatus: Int?,
         sort: String,

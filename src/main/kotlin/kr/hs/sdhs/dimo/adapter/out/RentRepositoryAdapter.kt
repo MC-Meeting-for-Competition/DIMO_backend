@@ -23,7 +23,7 @@ class RentRepositoryAdapter(private val jpaRentRepository : JpaRentRepository) :
 
     override fun findAllFiltered(
         studentId: String?,
-        teacherId: String?,
+        teacherId: Long?,
         equipmentId: Long?,
         rentStatus: RentStatus?,
         pageable: Pageable

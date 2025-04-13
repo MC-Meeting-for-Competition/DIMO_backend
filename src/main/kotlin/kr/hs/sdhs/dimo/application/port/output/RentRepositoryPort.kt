@@ -8,5 +8,5 @@ interface RentRepositoryPort {
     fun findById(id: Long): Rent?
     fun findAll() : MutableList<Rent>
     fun save(rent: Rent) : Rent
-    fun findAllFiltered(studentId: String?, teacherId : String?, equipmentId: Long?,rentStatus: RentStatus?, pageable: Pageable) : MutableList<Rent>
+    fun findAllFiltered(studentId: String?, teacherId : Long?, equipmentId: Long?,rentStatus: RentStatus?, pageable: Pageable) : MutableList<Rent>
 }
