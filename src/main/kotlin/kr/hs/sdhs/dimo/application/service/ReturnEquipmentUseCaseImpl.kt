@@ -23,25 +23,26 @@ class ReturnEquipmentUseCaseImpl(
     private val teacherRepositoryPort: TeacherRepositoryPort
 ) : ReturnEquipmentUseCase {
     override fun returnEquipment(equipmentId : Long, request : ReturnEquipmentRequestDTO): Rent {
-        var teacherId  : Long? = null;
-        var studentId : String? = null;
+        var teacherEmail  : String? = null;
+        var studentEmail : String? = null;
 
         when (request.userType) {
             "teacher" -> {
                 val targetTeacher = teacherRepositoryPort.findByEmail(request.email)
                 if(targetTeacher == null) throw CustomException(ErrorCode.TEACHER_NOT_FOUND)
-                teacherId = targetTeacher.id
+                teacherEmail = targetTeacher.email
             }
             "student" -> {
                 val targetStudent = studentRepositoryPort.findByEmail(request.email)
                 if(targetStudent == null) throw CustomException(ErrorCode.STUDENT_NOT_FOUND)
-                studentId = targetStudent.id
+                studentEmail = targetStudent.email
             }
             else -> {
                 throw CustomException(ErrorCode.INVALID_USER_TYPE)
             }
         }
-        val rentedEquipments = rentRepositoryPort.findAllFiltered(studentId, teacherId, equipmentId, RentStatus.RENTED,
+
+        val rentedEquipments = rentRepositoryPort.findAllFiltered(studentEmail, teacherEmail, equipmentId, RentStatus.RENTED,
             Pageable.unpaged())
 
         if (rentedEquipments.isEmpty()) {
@@ -49,6 +50,7 @@ class ReturnEquipmentUseCaseImpl(
         }
 
         val rent = rentedEquipments.first()
+        rent.rentStatus = RentStatus.CHECKING
         val equipment = equipmentRepositoryPort.findById(equipmentId) ?: throw CustomException(ErrorCode.EQUIPMENT_NOT_FOUND)
         equipment.updateStatus(RentStatus.CHECKING)
 

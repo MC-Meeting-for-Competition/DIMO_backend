@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service
 class AddTeacherMemoUseCaseImpl(
     private val teacherRepositoryPort: TeacherRepositoryPort
 ) : AddTeacherMemoUseCase {
-    override fun addTeacherMemo(id: Long, memo: String): Teacher {
-        val targetTeacher = teacherRepositoryPort.findById(id) ?: throw CustomException(ErrorCode.TEACHER_NOT_FOUND)
+    override fun addTeacherMemo(email : String, memo: String): Teacher {
+        val targetTeacher = teacherRepositoryPort.findByEmail(email) ?: throw CustomException(ErrorCode.TEACHER_NOT_FOUND)
         targetTeacher.rentMemo = memo
         return teacherRepositoryPort.save(targetTeacher)
     }

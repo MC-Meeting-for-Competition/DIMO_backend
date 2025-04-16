@@ -14,7 +14,7 @@ class GetRentListUseCaseImpl(
 ) : GetRentListUseCase {
     override fun getRentList(
         studentId: String?,
-        teacherId: Long?,
+        teacherId: String?,
         equipmentId: Long?,
         rentStatus: Int?,
         sort: String,

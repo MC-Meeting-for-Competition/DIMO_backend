@@ -16,14 +16,14 @@ interface JpaRentRepository : JpaRepository<Rent, Long> {
 
     @Query(
         """SELECT r FROM Rent r 
-           WHERE (:studentId IS NULL OR r.student.id = :studentId)
-           AND (:teacherId IS NULL OR r.teacher.id = :teacherId)
+           WHERE (:studentEmail IS NULL OR r.student.email = :studentEmail)
+           AND (:teacherEmail IS NULL OR r.teacher.email = :teacherEmail)
            AND (:equipmentId IS NULL OR r.equipment.id = :equipmentId)
            AND (:rentStatus IS NULL OR r.rentStatus = :rentStatus)"""
     )
     fun findAllFiltered(
-        @Param("studentId") studentId: String?,
-        @Param("teacherId") teacherId: Long?,
+        @Param("studentEmail") studentEmail: String?,
+        @Param("teacherEmail") teacherEmail: String?,
         @Param("equipmentId") equipmentId: Long?,
         @Param("rentStatus") rentStatus: RentStatus?,
         pageable: Pageable

@@ -15,11 +15,11 @@ data class Rent(
     val equipment: Equipment,
 
     @ManyToOne
-    @JoinColumn(name = "student_no")
+    @JoinColumn(name = "student_email")
     val student: Student? = null,
 
     @ManyToOne
-    @JoinColumn(name = "teacher_no")
+    @JoinColumn(name = "teacher_email")
     val teacher: Teacher? = null,
 
     @Column(name = "rent_date", nullable = false)

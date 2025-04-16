@@ -23,7 +23,7 @@ class UpdateRentStatusUseCaseImpl(
         if(rent.isAlreadyProcessed(status)) {
             throw CustomException(ErrorCode.ALREADY_PROCESSED)
         }
-        if(status == RentStatus.RENTED ) {
+        if(status == RentStatus.RENTED) {
             if(!rent.canBeReturned()) throw CustomException(ErrorCode.RETURN_NOT_ACCEPT)
             rent.isReturn = true
         }

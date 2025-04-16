@@ -3,7 +3,7 @@ package kr.hs.sdhs.dimo.adapter.`in`.dto
 import kr.hs.sdhs.dimo.domain.Teacher
 
 data class TeacherResponseDTO(
-    val id: Long?,
+    val id: String,
 
     val name: String,
 

@@ -6,10 +6,8 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "TEACHER")
 data class Teacher(
-    @Id
-    @Column(name = "teacher_no", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?,
+    @Column(name = "teacher_no", nullable = false)
+    val id: String,
 
     @Column(name = "teacher_name", nullable = false)
     val name: String,
@@ -17,7 +15,8 @@ data class Teacher(
     @Column(name = "teacher_phone", length = 13)
     val phone: String,
 
-    @Column(name = "teacher_email", nullable = false)
+    @Id
+    @Column(name = "teacher_email", nullable = false, unique = true)
     val email: String,
 
     @Column(name = "rent_memo", length = 200)
@@ -35,11 +34,13 @@ data class Teacher(
 ) {
     fun toDomain() : TeacherDomain {
         return TeacherDomain(
+            id = this.id,
             name = this.name,
             phone = this.phone,
             email = this.email,
             rentMemo = this.rentMemo,
             policy = this.policy,
+            rents = this.rents.map { it.toDomain() }
         )
     }
 }

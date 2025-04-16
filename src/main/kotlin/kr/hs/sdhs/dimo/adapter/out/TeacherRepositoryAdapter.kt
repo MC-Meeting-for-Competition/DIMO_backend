@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository
 class TeacherRepositoryAdapter(
     private val jpaTeacherRepository : JpaTeacherRepository
 ) : TeacherRepositoryPort {
-    override fun findById(id: Long): Teacher? {
+    override fun findById(id: String): Teacher? {
         return jpaTeacherRepository.findById(id).map { it.toDomain() }.orElse(null)
     }
 

@@ -15,7 +15,7 @@ class DeleteEquipmentUseCaseImpl(
         val equipment = equipmentRepository.findById(id) ?: throw CustomException(ErrorCode.EQUIPMENT_NOT_FOUND)
 
         // 대여 중인 기자재라면 삭제할 수 없음
-        if(equipment.status == RentStatus.RENTED) {
+        if(equipment.status == RentStatus.RENTED || equipment.status == RentStatus.LONG_RENTED) {
             throw CustomException(ErrorCode.EQUIPMENT_IS_RENTED)
         }
         equipmentRepository.deleteById(id)

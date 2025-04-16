@@ -6,8 +6,7 @@ import kr.hs.sdhs.dimo.domain.Student as StudentDomain
 @Entity
 @Table(name = "STUDENT")
 data class Student(
-    @Id
-    @Column(name = "student_no", unique = true, length = 5)
+    @Column(name = "student_no", length = 5)
     val id: String,
 
     @Column(name = "student_name", nullable = false)
@@ -16,7 +15,8 @@ data class Student(
     @Column(name = "student_phone", length = 13)
     val phone: String,
 
-    @Column(name = "student_email", nullable = false)
+    @Id
+    @Column(name = "student_email", nullable = false, unique = true)
     val email: String,
 
     @Column(name = "rent_memo", length = 200)

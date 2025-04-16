@@ -51,15 +51,21 @@ class AdminController(
     }
 
 
-    @PatchMapping("/rent/{rentId}/damage")
-    fun markAsDamaged(@PathVariable rentId: Long): RentResponseDTO {
-        val rent = updateRentStatusUseCase.updateRentStatus(rentId, RentStatus.DAMAGED)
-        return RentResponseDTO.fromDomain(rent)
-    }
+//    @PatchMapping("/rent/{rentId}/damage")
+//    fun markAsDamaged(@PathVariable rentId: Long): RentResponseDTO {
+//        val rent = updateRentStatusUseCase.updateRentStatus(rentId, RentStatus.DAMAGED)
+//        return RentResponseDTO.fromDomain(rent)
+//    }
+//
+//    @PatchMapping("/rent/{rentId}/available")
+//    fun markAsAvailable(@PathVariable rentId: Long): RentResponseDTO {
+//        val rent = updateRentStatusUseCase.updateRentStatus(rentId, RentStatus.AVAILABLE)
+//        return RentResponseDTO.fromDomain(rent)
+//    }
 
-    @PatchMapping("/rent/{rentId}/available")
-    fun markAsAvailable(@PathVariable rentId: Long): RentResponseDTO {
-        val rent = updateRentStatusUseCase.updateRentStatus(rentId, RentStatus.AVAILABLE)
+    @PatchMapping("/rent/{rentId}/status")
+    fun changeRentStatus(@PathVariable rentId: Long, @RequestBody request : ChangeRentStatusRequestDTO) : RentResponseDTO {
+        val rent = updateRentStatusUseCase.updateRentStatus(rentId, request.status);
         return RentResponseDTO.fromDomain(rent)
     }
 
@@ -87,15 +93,15 @@ class AdminController(
         return EquipmentResponseDTO.fromDomain(equipment)
     }
 
-    @PostMapping("/student/{id}/memo")
-    fun addMemoToStudent(@PathVariable id: String, @RequestBody memo: String) : StudentResponseDTO {
-        val student = addStudentMemoUseCase.addStudentMemo(id, memo)
+    @PostMapping("/student/memo")
+    fun addMemoToStudent(@RequestBody request: AddMemoRequestDTO) : StudentResponseDTO {
+        val student = addStudentMemoUseCase.addStudentMemo(request.email, request.memo)
         return StudentResponseDTO.fromDomain(student)
     }
 
-    @PostMapping("/teacher/{id}/memo")
-    fun addMemoToTeacher(@PathVariable id: Long, @RequestBody memo: String) : TeacherResponseDTO {
-        val teacher = addTeacherMemoUseCase.addTeacherMemo(id, memo)
+    @PostMapping("/teacher/memo")
+    fun addMemoToTeacher(@RequestBody request: AddMemoRequestDTO) : TeacherResponseDTO {
+        val teacher = addTeacherMemoUseCase.addTeacherMemo(request.email, request.memo)
         return TeacherResponseDTO.fromDomain(teacher)
     }
 }

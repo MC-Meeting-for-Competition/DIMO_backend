@@ -22,12 +22,12 @@ class RentRepositoryAdapter(private val jpaRentRepository : JpaRentRepository) :
     }
 
     override fun findAllFiltered(
-        studentId: String?,
-        teacherId: Long?,
+        studentEmail: String?,
+        teacherEmail: String?,
         equipmentId: Long?,
         rentStatus: RentStatus?,
         pageable: Pageable
     ): MutableList<Rent> {
-        return jpaRentRepository.findAllFiltered(studentId, teacherId, equipmentId, rentStatus, pageable).map { it.toDomain() }.toMutableList()
+        return jpaRentRepository.findAllFiltered(studentEmail, teacherEmail, equipmentId, rentStatus, pageable).map { it.toDomain() }.toMutableList()
     }
 }

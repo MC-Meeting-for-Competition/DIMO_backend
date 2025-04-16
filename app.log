@@ -9,25 +9,25 @@ nohup: ignoring input
 
  :: Spring Boot ::                (v3.4.3)
 
-2025-04-14T04:01:59.467+09:00  INFO 162399 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : Starting DimoApplicationKt v0.0.1-SNAPSHOT using Java 17.0.14 with PID 162399 (/home/yunjisang/workspace/DIMO/DIMO_backend/build/libs/DIMO-0.0.1-SNAPSHOT.jar started by yunjisang in /home/yunjisang/workspace/DIMO/DIMO_backend)
-2025-04-14T04:01:59.479+09:00  INFO 162399 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : No active profile set, falling back to 1 default profile: "default"
-2025-04-14T04:02:03.415+09:00  INFO 162399 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-14T04:02:04.034+09:00  INFO 162399 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 590 ms. Found 6 JPA repository interfaces.
-2025-04-14T04:02:06.063+09:00  INFO 162399 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
-2025-04-14T04:02:06.091+09:00  INFO 162399 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-04-14T04:02:06.092+09:00  INFO 162399 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
-2025-04-14T04:02:06.158+09:00  INFO 162399 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-04-14T04:02:06.160+09:00  INFO 162399 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6400 ms
-2025-04-14T04:02:06.665+09:00  INFO 162399 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-14T04:02:06.859+09:00  INFO 162399 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-04-14T04:02:06.976+09:00  INFO 162399 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-14T04:02:07.923+09:00  INFO 162399 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-14T04:02:08.041+09:00  INFO 162399 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-04-14T04:02:08.854+09:00  INFO 162399 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@290807e5
-2025-04-14T04:02:08.859+09:00  INFO 162399 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-04-14T04:02:09.043+09:00  WARN 162399 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-14T04:02:09.049+09:00  WARN 162399 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-04-14T04:02:09.131+09:00  INFO 162399 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-04-17T01:29:05.705+09:00  INFO 272571 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : Starting DimoApplicationKt v0.0.1-SNAPSHOT using Java 17.0.14 with PID 272571 (/home/yunjisang/workspace/DIMO/DIMO_backend/build/libs/DIMO-0.0.1-SNAPSHOT.jar started by yunjisang in /home/yunjisang/workspace/DIMO/DIMO_backend)
+2025-04-17T01:29:05.737+09:00  INFO 272571 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : No active profile set, falling back to 1 default profile: "default"
+2025-04-17T01:29:10.818+09:00  INFO 272571 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17T01:29:11.657+09:00  INFO 272571 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 808 ms. Found 6 JPA repository interfaces.
+2025-04-17T01:29:13.666+09:00  INFO 272571 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2025-04-17T01:29:13.707+09:00  INFO 272571 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-17T01:29:13.708+09:00  INFO 272571 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-17T01:29:13.796+09:00  INFO 272571 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-17T01:29:13.799+09:00  INFO 272571 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7285 ms
+2025-04-17T01:29:14.330+09:00  INFO 272571 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17T01:29:14.588+09:00  INFO 272571 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-17T01:29:14.715+09:00  INFO 272571 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-17T01:29:15.908+09:00  INFO 272571 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17T01:29:16.019+09:00  INFO 272571 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-17T01:29:17.287+09:00  INFO 272571 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@126254ec
+2025-04-17T01:29:17.292+09:00  INFO 272571 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-17T01:29:17.937+09:00  WARN 272571 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17T01:29:17.945+09:00  WARN 272571 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-17T01:29:18.293+09:00  INFO 272571 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -35,68 +35,9 @@ nohup: ignoring input
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-14T04:02:12.083+09:00  INFO 162399 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: create table equipment (equip_no bigint not null auto_increment, memo varchar(200), serial_no varchar(255), status tinyint not null, item_no bigint not null, primary key (equip_no)) engine=InnoDB
-Hibernate: create table rent (rent_no bigint not null auto_increment, is_return bit not null, rent_date date not null, rent_status tinyint not null, return_date date, equip_no bigint not null, student_no varchar(5), teacher_no bigint, primary key (rent_no)) engine=InnoDB
-Hibernate: alter table equipment add constraint FKq34agpqb1rnh2otomb1rt4wt8 foreign key (item_no) references equipment_type (item_no)
-Hibernate: alter table rent add constraint FK4hwcvq61hc0vlb0ngpa7qjf6h foreign key (equip_no) references equipment (equip_no)
-Hibernate: alter table rent add constraint FKg7bf26tncujg4wdd7tx8d4bw7 foreign key (student_no) references student (student_no)
-Hibernate: alter table rent add constraint FKjoeap28f0cxc0sbbdqu0ayv24 foreign key (teacher_no) references teacher (teacher_no)
-2025-04-14T04:02:14.098+09:00  INFO 162399 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-14T04:02:15.509+09:00  INFO 162399 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-14T04:02:20.018+09:00  INFO 162399 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name getAdminDetailsUseCaseImpl
-2025-04-14T04:02:21.882+09:00  INFO 162399 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
-2025-04-14T04:02:21.946+09:00  INFO 162399 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : Started DimoApplicationKt in 24.125 seconds (process running for 25.581)
-2025-04-14T04:02:36.641+09:00  INFO 162399 --- [nio-8888-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-14T04:02:36.641+09:00  INFO 162399 --- [nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-04-14T04:02:36.645+09:00  INFO 162399 --- [nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where (? is null or e1_0.item_no=?) and (? is null or e1_0.status=?) order by e1_0.equip_no
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where (? is null or e1_0.item_no=?) and (? is null or e1_0.status=?) order by e1_0.equip_no
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: insert into equipment (memo,serial_no,status,item_no) values (?,?,?,?)
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: insert into equipment (memo,serial_no,status,item_no) values (?,?,?,?)
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: insert into equipment (memo,serial_no,status,item_no) values (?,?,?,?)
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: select a1_0.admin_no,a1_0.account_status,a1_0.admin_name,a1_0.password,a1_0.role from admin a1_0 where a1_0.admin_name=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select count(e1_0.equip_no) from equipment e1_0 where e1_0.serial_no=? and e1_0.item_no=?
-Hibernate: insert into equipment (memo,serial_no,status,item_no) values (?,?,?,?)
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where (? is null or e1_0.item_no=?) and (? is null or e1_0.status=?) order by e1_0.equip_no
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where e1_0.equip_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select s1_0.student_no,s1_0.student_email,s1_0.gender,s1_0.student_name,s1_0.student_phone,s1_0.policy,s1_0.rent_memo,r1_0.student_no,r1_0.rent_no,r1_0.equip_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.teacher_no,s1_0.role from student s1_0 left join rent r1_0 on s1_0.student_no=r1_0.student_no where s1_0.student_email=?
-Hibernate: select e1_0.equip_no,e1_0.memo,e1_0.serial_no,e1_0.status,e1_0.item_no,t1_0.item_no,t1_0.item_name,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,s1_0.student_no,s1_0.student_email,s1_0.gender,s1_0.student_name,s1_0.student_phone,s1_0.policy,s1_0.rent_memo,s1_0.role,t2_0.teacher_no,t2_0.teacher_email,t2_0.teacher_name,t2_0.teacher_phone,t2_0.policy,t2_0.rent_memo,t2_0.role from equipment e1_0 join equipment_type t1_0 on t1_0.item_no=e1_0.item_no left join rent r1_0 on e1_0.equip_no=r1_0.equip_no left join student s1_0 on s1_0.student_no=r1_0.student_no left join teacher t2_0 on t2_0.teacher_no=r1_0.teacher_no where e1_0.equip_no=?
-Hibernate: update equipment set memo=?,serial_no=?,status=?,item_no=? where equip_no=?
-Hibernate: select null,s1_0.student_email,s1_0.gender,s1_0.student_name,s1_0.student_phone,s1_0.policy,s1_0.rent_memo,s1_0.role from student s1_0 where s1_0.student_no=?
-Hibernate: insert into rent (equip_no,is_return,rent_date,rent_status,return_date,student_no,teacher_no) values (?,?,?,?,?,?,?)
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where (? is null or e1_0.item_no=?) and (? is null or e1_0.status=?) order by e1_0.equip_no
-Hibernate: select s1_0.student_no,s1_0.student_email,s1_0.gender,s1_0.student_name,s1_0.student_phone,s1_0.policy,s1_0.rent_memo,s1_0.role from student s1_0 where s1_0.student_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0
-Hibernate: select e1_0.equip_no,e1_0.memo,r1_0.equip_no,r1_0.rent_no,r1_0.is_return,r1_0.rent_date,r1_0.rent_status,r1_0.return_date,r1_0.student_no,r1_0.teacher_no,e1_0.serial_no,e1_0.status,e1_0.item_no from equipment e1_0 left join rent r1_0 on e1_0.equip_no=r1_0.equip_no where (? is null or e1_0.item_no=?) and (? is null or e1_0.status=?) order by e1_0.equip_no
-Hibernate: select s1_0.student_no,s1_0.student_email,s1_0.gender,s1_0.student_name,s1_0.student_phone,s1_0.policy,s1_0.rent_memo,s1_0.role from student s1_0 where s1_0.student_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
-Hibernate: select et1_0.item_no,et1_0.item_name from equipment_type et1_0 where et1_0.item_no=?
+2025-04-17T01:29:23.677+09:00  INFO 272571 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17T01:29:24.012+09:00  INFO 272571 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17T01:29:25.410+09:00  INFO 272571 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17T01:29:33.801+09:00  INFO 272571 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name getAdminDetailsUseCaseImpl
+2025-04-17T01:29:37.643+09:00  INFO 272571 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2025-04-17T01:29:37.786+09:00  INFO 272571 --- [           main] kr.hs.sdhs.dimo.DimoApplicationKt        : Started DimoApplicationKt in 37.051 seconds (process running for 41.038)

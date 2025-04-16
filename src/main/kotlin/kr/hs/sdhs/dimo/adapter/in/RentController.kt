@@ -30,7 +30,7 @@ class RentController(
     @GetMapping
     fun getRentList(
         @RequestParam(required = false) studentId: String?,
-        @RequestParam(required = false) teacherId: Long?,
+        @RequestParam(required = false) teacherId: String?,
         @RequestParam(required = false) equipmentId: Long?,
         @RequestParam(required = false) rentStatus: Int?,
         @RequestParam(defaultValue = "id") sort: String,

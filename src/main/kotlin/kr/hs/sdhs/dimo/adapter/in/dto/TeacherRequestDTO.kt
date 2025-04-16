@@ -30,7 +30,8 @@ data class TeacherRequestDTO(
             phone = phone,
             email = email,
             rentMemo = rentMemo,
-            policy = policy
+            policy = policy,
+            id = "00000"
         )
     }
 }
