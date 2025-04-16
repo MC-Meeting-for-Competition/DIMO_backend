@@ -63,9 +63,9 @@ class AdminController(
 //        return RentResponseDTO.fromDomain(rent)
 //    }
 
-    @PatchMapping("/rent/{rentId}/status")
-    fun changeRentStatus(@PathVariable rentId: Long, @RequestBody request : ChangeRentStatusRequestDTO) : RentResponseDTO {
-        val rent = updateRentStatusUseCase.updateRentStatus(rentId, request.status);
+    @PatchMapping("/rent/{equipmentId}/status")
+    fun changeRentStatus(@PathVariable equipmentId : Long, @RequestBody request : ChangeRentStatusRequestDTO) : RentResponseDTO {
+        val rent = updateRentStatusUseCase.updateRentStatus(equipmentId, request);
         return RentResponseDTO.fromDomain(rent)
     }
 

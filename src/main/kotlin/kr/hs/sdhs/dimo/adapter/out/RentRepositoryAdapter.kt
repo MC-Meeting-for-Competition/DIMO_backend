@@ -30,4 +30,11 @@ class RentRepositoryAdapter(private val jpaRentRepository : JpaRentRepository) :
     ): MutableList<Rent> {
         return jpaRentRepository.findAllFiltered(studentEmail, teacherEmail, equipmentId, rentStatus, pageable).map { it.toDomain() }.toMutableList()
     }
+
+    override fun findByEquipmentIdAndRentStatus(
+        equipmentId: Long,
+        status: RentStatus
+    ): MutableList<Rent> {
+        return jpaRentRepository.findByEquipmentIdAndRentStatus(equipmentId, status).map { it.toDomain()}.toMutableList()
+    }
 }

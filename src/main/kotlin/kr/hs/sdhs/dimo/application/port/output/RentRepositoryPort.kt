@@ -9,4 +9,5 @@ interface RentRepositoryPort {
     fun findAll() : MutableList<Rent>
     fun save(rent: Rent) : Rent
     fun findAllFiltered(studentEmail: String?, teacherEmail : String?, equipmentId: Long?,rentStatus: RentStatus?, pageable: Pageable) : MutableList<Rent>
+    fun findByEquipmentIdAndRentStatus(equipmentId: Long, status: RentStatus) : MutableList<Rent>
 }

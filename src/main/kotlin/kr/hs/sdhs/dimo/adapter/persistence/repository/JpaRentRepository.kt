@@ -28,4 +28,18 @@ interface JpaRentRepository : JpaRepository<Rent, Long> {
         @Param("rentStatus") rentStatus: RentStatus?,
         pageable: Pageable
     ): Page<Rent>
+
+    // id로 내림차순 정렬을 하여 최근 순으로 조회하도록 강제
+    @Query(
+        """
+            SELECT  r FROM Rent r
+            WHERE r.equipment.id = :equipmentId
+            AND r.rentStatus = :rentStatus
+            ORDER BY r.id DESC
+        """
+    )
+    fun findByEquipmentIdAndRentStatus(
+        @Param("equipmentId") equipmentId : Long,
+        @Param("rentStatus") rentStatus : RentStatus
+    ) : List<Rent>
 }

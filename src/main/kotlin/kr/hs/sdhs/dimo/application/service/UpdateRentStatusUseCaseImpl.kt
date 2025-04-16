@@ -1,6 +1,7 @@
 package kr.hs.sdhs.dimo.application.service
 
 import jakarta.transaction.Transactional
+import kr.hs.sdhs.dimo.adapter.`in`.dto.ChangeRentStatusRequestDTO
 import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
 import kr.hs.sdhs.dimo.application.port.input.UpdateRentStatusUseCase
 import kr.hs.sdhs.dimo.application.port.output.EquipmentRepositoryPort
@@ -16,20 +17,24 @@ class UpdateRentStatusUseCaseImpl(
     private val equipmentRepository : EquipmentRepositoryPort
 ) : UpdateRentStatusUseCase {
     @Transactional
-    override fun updateRentStatus(rentId : Long, status: RentStatus): Rent {
-        val rent = rentRepository.findById(rentId) ?: throw CustomException(ErrorCode.RENT_NOT_FOUND)
-        val equipment = equipmentRepository.findById(rent.equipment.id) ?: throw CustomException(ErrorCode.EQUIPMENT_NOT_FOUND)
+    override fun updateRentStatus(equipmentId : Long, request : ChangeRentStatusRequestDTO): Rent {
+//        val rent = rentRepository.findById(rentId) ?: throw CustomException(ErrorCode.RENT_NOT_FOUND)
+        val equipment = equipmentRepository.findById(equipmentId) ?: throw CustomException(ErrorCode.EQUIPMENT_NOT_FOUND)
+        val rentList = rentRepository.findByEquipmentIdAndRentStatus(equipmentId, request.currentStatus)
 
-        if(rent.isAlreadyProcessed(status)) {
+        if(rentList.isEmpty()) throw CustomException(ErrorCode.RENT_NOT_FOUND)
+        val rent = rentList.first()
+
+        if(rent.isAlreadyProcessed(request.newStatus)) {
             throw CustomException(ErrorCode.ALREADY_PROCESSED)
         }
-        if(status == RentStatus.RENTED) {
+        if(request.newStatus == RentStatus.RENTED) {
             if(!rent.canBeReturned()) throw CustomException(ErrorCode.RETURN_NOT_ACCEPT)
             rent.isReturn = true
         }
 
-        rent.updateStatus(status)
-        equipment.updateStatus(status)
+        rent.updateStatus(request.newStatus)
+        equipment.updateStatus(request.newStatus)
 
         rentRepository.save(rent)
         equipmentRepository.save(equipment)

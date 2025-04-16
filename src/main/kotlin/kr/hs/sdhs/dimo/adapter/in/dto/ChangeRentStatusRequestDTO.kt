@@ -5,6 +5,9 @@ import kr.hs.sdhs.dimo.adapter.persistence.entity.RentStatus
 
 data class ChangeRentStatusRequestDTO(
     @field:NotNull(message="기기 상태는 필수 항목입니다")
-    val status : RentStatus
+    val currentStatus : RentStatus,
+
+    @field:NotNull(message= "변경 상태는 필수 항목입니다")
+    val newStatus : RentStatus
 ) {
 }
